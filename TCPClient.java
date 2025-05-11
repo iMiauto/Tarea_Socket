@@ -1,14 +1,8 @@
 
+import java.awt.*;
 import java.io.*;
 import java.net.*;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.*;
-import java.awt.*;
 
 
 public class TCPClient {
@@ -95,7 +89,7 @@ public class TCPClient {
     public static void metodo_servidor(double p1, double p2, double p3, double q1, double q2, double q3, double q4, double q5, double q6) throws Exception {
         txt = ""; 
         String[] recibido = new String[12];
-        Socket clientSocket = new Socket("Miauto", 7680);
+        Socket clientSocket = new Socket("Miauto", 6328);
 
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
         BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));

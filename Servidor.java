@@ -6,7 +6,7 @@ public static void main(String argv[]) throws Exception
 {
 
 
-    ServerSocket welcomeSocket = new ServerSocket(7680);
+    ServerSocket welcomeSocket = new ServerSocket(6328);
     System.out.println("Esperando conexiones...");
 
 
@@ -58,6 +58,8 @@ public static void main(String argv[]) throws Exception
         outToClient.writeBytes("Suma de examenes: " + sumaExamenes + "\n");
         outToClient.writeBytes("Suma de quices: " + sumaQuices + "\n");
         outToClient.writeBytes("Promedio Final " + promedio + "\n");
+
+        
         
     }
     }
