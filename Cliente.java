@@ -18,6 +18,6 @@ class TCPClient {
  modifiedSentence = inFromServer.readLine();
  System.out.println("FROM SERVER: " + modifiedSentence);
  clientSocket.close();
-
+ //Comentario: El cliente envía un mensaje al servidor y espera una respuesta.
  }
 }
