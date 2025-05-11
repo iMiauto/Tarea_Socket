@@ -22,8 +22,8 @@ public static void main(String argv[]) throws Exception
         double examenesPorcentados[] = new double[3];
         double quicesPorcentados[] = new double[6];
 
-        double porcentajeExamenes = 80 / 3;
-        double porcentajeQuices = 20 / 6;
+        double porcentajeExamenes = 26.6666666667;
+        double porcentajeQuices = 3.3333333333;
 
         for(int i = 0; i < 3; i++) {
             System.out.println("Ingrese la nota del examen " + (i + 1) + ": ");
