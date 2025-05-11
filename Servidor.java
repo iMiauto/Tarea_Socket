@@ -6,7 +6,7 @@ public static void main(String argv[]) throws Exception
 {
 
 
-    ServerSocket welcomeSocket = new ServerSocket(6789);
+    ServerSocket welcomeSocket = new ServerSocket(7680);
     System.out.println("Esperando conexiones...");
 
 
@@ -17,29 +17,48 @@ public static void main(String argv[]) throws Exception
 
         DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
 
+        double examenes[] = new double[3];
+        double quices[] = new double[6];
+        double examenesPorcentados[] = new double[3];
+        double quicesPorcentados[] = new double[6];
 
-        double ex1 = Double.parseDouble(inFromClient.readLine());
-        double ex2 = Double.parseDouble(inFromClient.readLine());
-        double ex3 = Double.parseDouble(inFromClient.readLine());
+        double porcentajeExamenes = 80 / 3;
+        double porcentajeQuices = 20 / 6;
 
-        double q1 = Double.parseDouble(inFromClient.readLine());
-        double q2 = Double.parseDouble(inFromClient.readLine());
-        double q3 = Double.parseDouble(inFromClient.readLine());
-        double q4 = Double.parseDouble(inFromClient.readLine());
-        double q5 = Double.parseDouble(inFromClient.readLine());
-        double q6 = Double.parseDouble(inFromClient.readLine());
+        for(int i = 0; i < 3; i++) {
+            System.out.println("Ingrese la nota del examen " + (i + 1) + ": ");
+            String nota = inFromClient.readLine();
+            examenes[i] = Double.parseDouble(nota);
+        }
+        for(int i = 0; i < 6; i++) {
+            System.out.println("Ingrese la nota del quiz " + (i + 1) + ": ");
+            String nota = inFromClient.readLine();
+            quices[i] = Double.parseDouble(nota);
+        }
 
-        double promedioExamenes = (ex1 + ex2 + ex3) /3;
-        double promedioQuices = (q1 + q2 + q3 + q4 + q5 + q6) / 6;
+        for(int i = 0; i < 3; i++){
+            examenesPorcentados[i] = examenes[i] * porcentajeExamenes /100;
+        }
+        for(int i = 0; i < 6; i++){
+            quicesPorcentados[i] = quices[i] * porcentajeQuices / 100;
+        }
 
-        double promedioFinal = (promedioExamenes * 0.8) + (promedioQuices * 0.2);
+        double sumaExamenes = examenesPorcentados[0] + examenesPorcentados[1] + examenesPorcentados[2];
+        double sumaQuices = quicesPorcentados[0] + quicesPorcentados[1] + quicesPorcentados[2] + quicesPorcentados[3] + quicesPorcentados[4] + quicesPorcentados[5];
+        double promedio = sumaExamenes + sumaQuices;
 
+        
 
-        outToClient.writeBytes("Promedio exa");
+        for(int i = 0; i < 3; i++){
+            outToClient.writeBytes("Porcentaje del examen " + (i + 1) + ": " + examenesPorcentados[i] + "\n");
+        }
+        for(int i = 0; i < 6; i++){
+            outToClient.writeBytes("Porcentaje del quiz " + (i + 1) + ": " + quicesPorcentados[i] + "\n");
+        }
+        outToClient.writeBytes("Suma de examenes: " + sumaExamenes + "\n");
+        outToClient.writeBytes("Suma de quices: " + sumaQuices + "\n");
+        outToClient.writeBytes("Promedio Final " + promedio + "\n");
+        
     }
     }
     }
-// Comentario: El servidor escucha en el puerto 6789 y espera conexiones de clientes.
-
-
-// cambio de prueba
