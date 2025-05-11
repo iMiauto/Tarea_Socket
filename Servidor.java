@@ -5,6 +5,7 @@ class TCPServer {
  {
  String clientSentence;
  String capitalizedSentence;
+ 
  ServerSocket welcomeSocket = new ServerSocket(6789);
 
  while(true) {
@@ -13,7 +14,7 @@ class TCPServer {
  BufferedReader inFromClient =
  new BufferedReader(new
  InputStreamReader(connectionSocket.getInputStream()));
- 
+
  DataOutputStream outToClient =
  new DataOutputStream(connectionSocket.getOutputStream());
  clientSentence = inFromClient.readLine();
@@ -22,3 +23,7 @@ class TCPServer {
  }
  }
 }
+
+
+
+// cambio de prueba
