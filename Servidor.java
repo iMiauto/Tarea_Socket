@@ -14,6 +14,7 @@ public static void main(String argv[]) throws Exception
 
         Socket connectionSocket = welcomeSocket.accept();
         BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+        System.out.println("Conexión establecida con el cliente: " + connectionSocket.getInetAddress() + ":" + connectionSocket.getPort());
 
         DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
 
