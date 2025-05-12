@@ -46,6 +46,7 @@ public static void main(String argv[]) throws Exception
         double sumaExamenes = examenesPorcentados[0] + examenesPorcentados[1] + examenesPorcentados[2];
         double sumaQuices = quicesPorcentados[0] + quicesPorcentados[1] + quicesPorcentados[2] + quicesPorcentados[3] + quicesPorcentados[4] + quicesPorcentados[5];
         double promedio = sumaExamenes + sumaQuices;
+        long promedioRedondeado = Math.round(promedio);
 
         
 
