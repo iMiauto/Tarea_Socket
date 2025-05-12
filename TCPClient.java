@@ -89,7 +89,7 @@ public class TCPClient {
     public static void metodo_servidor(double p1, double p2, double p3, double q1, double q2, double q3, double q4, double q5, double q6) throws Exception {
         txt = ""; 
         String[] recibido = new String[12];
-        Socket clientSocket = new Socket("DESKTOP-HLA0F6I", 6328);
+        Socket clientSocket = new Socket("DESKTOP-HLA0F6I",  7544);
 
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
         BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));

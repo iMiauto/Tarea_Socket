@@ -6,7 +6,7 @@ public static void main(String argv[]) throws Exception
 {
 
 
-    ServerSocket welcomeSocket = new ServerSocket(6328);
+    ServerSocket welcomeSocket = new ServerSocket( 7544);
     System.out.println("Esperando conexiones...");
 
 
