@@ -26,12 +26,12 @@ public static void main(String argv[]) throws Exception
         double porcentajeQuices = 3.3333333333;
 
         for(int i = 0; i < 3; i++) {
-            System.out.println("Ingrese la nota del examen " + (i + 1) + ": ");
+            
             String nota = inFromClient.readLine();
             examenes[i] = Double.parseDouble(nota);
         }
         for(int i = 0; i < 6; i++) {
-            System.out.println("Ingrese la nota del quiz " + (i + 1) + ": ");
+            
             String nota = inFromClient.readLine();
             quices[i] = Double.parseDouble(nota);
         }
@@ -46,6 +46,8 @@ public static void main(String argv[]) throws Exception
         double sumaExamenes = examenesPorcentados[0] + examenesPorcentados[1] + examenesPorcentados[2];
         double sumaQuices = quicesPorcentados[0] + quicesPorcentados[1] + quicesPorcentados[2] + quicesPorcentados[3] + quicesPorcentados[4] + quicesPorcentados[5];
         double promedio = sumaExamenes + sumaQuices;
+        long sumaQuicesRedondeado = Math.round(sumaQuices);
+        long sumaExamenesRedondeado = Math.round(sumaExamenes);
         long promedioRedondeado = Math.round(promedio);
 
         
@@ -56,9 +58,9 @@ public static void main(String argv[]) throws Exception
         for(int i = 0; i < 6; i++){
             outToClient.writeBytes("Porcentaje del quiz " + (i + 1) + ": " + quicesPorcentados[i] + "\n");
         }
-        outToClient.writeBytes("Suma de examenes: " + sumaExamenes + "\n");
-        outToClient.writeBytes("Suma de quices: " + sumaQuices + "\n");
-        outToClient.writeBytes("Promedio Final " + promedio + "\n");
+        outToClient.writeBytes("Suma de examenes: " + sumaExamenesRedondeado + "\n");
+        outToClient.writeBytes("Suma de quices: " + sumaQuicesRedondeado + "\n");
+        outToClient.writeBytes("Promedio Final " + promedioRedondeado + "\n");
 
         
         
